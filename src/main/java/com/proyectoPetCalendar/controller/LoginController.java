@@ -22,7 +22,7 @@ public class LoginController {
     public String login(Model model){/*el enlace vacío se devolveria la ventana para ingresar usuario y contraseña (Spring security)*/
         var usuarios= usuarioService.getUsuarios();
         model.addAttribute("usuarios", usuarios);
-        return "login";
+        return "index";
     }
     
     @GetMapping("/usuario/nuevo")

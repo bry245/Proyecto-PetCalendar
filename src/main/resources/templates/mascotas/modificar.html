@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Mascotas</title>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        <section id="actions" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">                   
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{mascotas.agregar}]]</h4>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/mascota/guardar}"
+                                      method="post"
+                                      th:object="${mascota}">
+                                    <div class="row py-1 mb-2 bg-light">
+                                        <div class="form-group">
+                                            <input type="hidden" name="idMascota" th:field="*{idMascota}" />
+                                            <label for="propietarioCedula">[[#{mascotas.cedulaPro}]]</label>
+                                            <input type="text" name="propietarioCedula"  th:field="*{cedula}"/>
+                                            <br/>
+                                            <label for="propietarioNombre">[[#{mascotas.propietario}]]</label>
+                                            <input type="text" name="propietarioNombre"  th:field="*{nombrePropietario}"/>
+                                             <br/>
+                                            <label for="propietarioApellidos">[[#{mascotas.propieApellidos}]]</label>
+                                            <input type="text" name="propietarioApellidos"  th:field="*{apellidosPropietario}"/>
+                                             <br/>
+                                            <label for="nombreMascota">[[#{mascotas.nombre}]]:</label>
+                                            <input type="text" name="nombreMascota"  th:field="*{nombreMascota}"/>
+                                             <br/>
+                                             <p>[[#{mascotas.tipo}]]</p>
+                                            <select th:field="*{tipo}">
+                                                <option th:value="Perro"
+                                                        th:text="#{tipo.perro}"/>
+                                                <option th:value="Gato"
+                                                        th:text="#{tipo.gato}"/>
+                                                <option th:value="Conejo"
+                                                        th:text="#{tipo.conejo}"/>
+                                                <option th:value="Hamster"
+                                                        th:text="#{tipo.hamster}"/>
+                                                <option th:value="Ave"
+                                                        th:text="#{tipo.ave}"/>
+                                            </select> 
+                                              
+                                              <br/>
+                                            <label for="edad">[[#{mascotas.edad}]]:</label>
+                                            <input type="text" name="edad"  th:field="*{edad}"/>
+                                             <br/>
+                                            <label for="telefono">[[#{mascotas.telefono}]]:</label>
+                                            <input type="text" name="telefono"  th:field="*{telefono}"/>
+                                             <br/>
+                                            <label for="direccion">[[#{mascotas.direccion}]]:</label>
+                                            <input type="text" name="direccion"  th:field="*{direccion}"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row  py-1 mb-2 bg-light">
+                                        <button type="submit" class="btn btn-primary btn-block">[[#{accion.agregar}]]</button>                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="layout/plantilla :: footer"></footer>
+
+    </body>
+</html>

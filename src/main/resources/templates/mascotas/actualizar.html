@@ -12,13 +12,13 @@
         </div>
               <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <div class="card">
                             <div class="card-header">
-                                 <h4>[[#{mascotas.listado}]]</h4>
+                                 <h4>[[#{mascotas.listadoEliminar}]]</h4>
                             </div>
                             <div th:if="${mascotas != null and !mascotas.empty}">
-                                <table class="table table-stryped">
+                                <table class="table table-success table-striped">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>Mascota </th>
@@ -29,6 +29,7 @@
                                             <th th:text="#{mascotas.edad}">Edad</th>
                                             <th th:text="#{mascotas.telefono}">Telefono</th>
                                             <th th:text="#{mascotas.direccion}">Direccion</th>
+                                            <th th:text="#{accion.actualizar}">Actualizar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +41,14 @@
                                             <td>[[${mascota.tipo}]] </td>
                                             <td>[[${mascota.edad}]] </td>
                                             <td>[[${mascota.telefono}]] </td>
-                                            <td>[[${mascota.direccion}]] </td>  
+                                            <td>[[${mascota.direccion}]] </td> 
+                                            <td>
+                                                <a th:href="@{/mascota/modificar/} + ${mascota.idMascota}"
+                                                   class="btn btn-success">
+                                                   <i class="fa fa-pen"></i> [[#{accion.actualizar}]]
+                                                </a>
+                                                
+                                            </td>
                                         </tr>
                                     </tbody>
             
