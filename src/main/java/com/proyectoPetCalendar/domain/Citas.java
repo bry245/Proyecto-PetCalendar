@@ -41,11 +41,5 @@ public class Citas implements Serializable{
         this.fecha = fecha;
         this.mascota = mascota;
         this.veterinaria = veterinaria;
-    }
-
-   
-    
-    
-    
-    
+    }   
 }

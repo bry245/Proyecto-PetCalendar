@@ -9,8 +9,10 @@ import com.proyectoPetCalendar.domain.Mascota;
 import com.proyectoPetCalendar.domain.Veterinaria;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CitasServiceImpl  implements CitasService{
 
     @Autowired
@@ -27,22 +29,26 @@ public class CitasServiceImpl  implements CitasService{
     }
 
     @Override
-     @Transactional (readOnly=true)
-    public Citas getCitas(Citas citas) {
-        return citasDao.findById(citas.getIdCita()).orElse(null);
-     }
-
-    @Override
-     @Transactional 
+    @Transactional 
     public void save(Citas citas) {
         Mascota mascota = citas.getMascota();
+        mascota = mascotaDao.save(mascota);
         Veterinaria veterinaria= citas.getVeterinaria();  
+        veterinaria = veterinariaDao.save(veterinaria);
+        citas.setMascota(mascota);
+        citas.setVeterinaria(veterinaria);
     }
 
     @Override
-     @Transactional 
+    @Transactional 
     public void delete(Citas citas) {
         citasDao.delete(citas);
     }
+
+    /*@Override
+    @Transactional
+    public Citas getCitas(Citas citas) {
+        //return citasDao.findAllById(citas.getIdCita()).orElse(null);
+    }*/
     
 }

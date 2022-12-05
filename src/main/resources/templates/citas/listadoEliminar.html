@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Citas</title>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="container px4">
+            <h1 class="px4"> <i class="fas fa-calendar"></i>[[#{citas.lista}]]</h1>
+        </div>
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div th:if="${citas != null and !citas.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Cita</th>
+                                            <th th:text="#{citas.mascota}">Propietario</th>
+                                            <th th:text="#{citas.veterinaria}">Cedula</th>
+                                            <th th:text="#{citas.fecha}">Nombre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="cita, contador : ${citas}">
+                                            <td>[[${citas.mascota}]] </td>
+                                            <td>[[${citas.veterinaria}]] </td>
+                                            <td>[[${citas.fecha}]] </td>  
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <br/>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

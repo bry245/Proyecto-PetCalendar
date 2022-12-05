@@ -1,0 +1,10 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:if": {},
+        "th:text": {},
+        "th": {},
+        "th:replace": {},
+        "th:each": {}
+    }
+}

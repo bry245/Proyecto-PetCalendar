@@ -18,13 +18,12 @@ public class MascotasController {
 
     @GetMapping("/mascotas/menu")
     public String menu(Model model) {
-
         return "/mascotas/menu";
     }
 
     @GetMapping("/mascotas/listado")
     public String inicio(Model model) {
-        var mascotas = mascotaService.getMascotas();/*Metodo del crud que devulve todos los articulos*/
+        var mascotas = mascotaService.getMascotas();
 
         model.addAttribute("mascotas", mascotas);
 
@@ -41,6 +40,7 @@ public class MascotasController {
         return "/mascotas/listadoEliminar";
 
     }
+    
     @GetMapping("/mascota/listadoEditar")
     public String listadoEditar(Model model) {
         var mascotas = mascotaService.getMascotas();
@@ -48,9 +48,7 @@ public class MascotasController {
         model.addAttribute("mascotas", mascotas);
 
         return "/mascotas/actualizar";
-
-    }
-    
+    } 
 
     @GetMapping("/mascota/eliminar/{idMascota}")
     public String eliminarMascota(Mascota mascota, Model model) {
