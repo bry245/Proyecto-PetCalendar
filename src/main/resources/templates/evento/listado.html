@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2>Listado de eventos</h2>
+            <br/>
+            <br/>
+            <div th:if = "${eventos != null and !eventos.empty}">
+                <br/>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="evento:${eventos}">
+                            <td th:text="${evento.nombre}"></td>
+                            <td th:text="${evento.fecha}"></td>
+                            <td th:text="${evento.hora}"></td>    
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+                <button style="background-color: cornflowerblue"><a th:href="@{/}">Atrás</a></button>
+            </div>
+            <div th:if="${eventos == null or eventos.empty}">
+                <p th:text="#{articulo.no_mostrar}"> No mostrar items</p>
+            </div>
+            <br/>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

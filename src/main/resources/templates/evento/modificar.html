@@ -2,26 +2,26 @@
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head">
-        <title>Albergue</title>
+        <title>Eventos</title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header" />
         <div class="contenido">
             <h2>[[#{categoria.datos}]]</h2>
-            <a th:href="@{/albergue/listado}">[[#{accion.regresar}]]</a>
+            <a th:href="@{/evento/listado}">[[#{accion.regresar}]]</a>
             </br>
             </br>
-            <form th:action="@{/albergue/guardar}"
+            <form th:action="@{/evento/guardar}"
                   method="POST"
-                  th:object="${albergue}">
+                  th:object="${evento}">
                 <input type="hidden" name="idAlbergue" th:field="{idAlbergue}"/>
-                <label for="nombre">[[#{albergue.nombre}]]</label>
+                <label for="nombre">[[#{evento.nombre}]]</label>
                 <input type="text" name="nombre" th:field="{nombre}" />
-                <label for="descripcion">[[#{albergue.descripcion}]]</label>
-                <input type="text" name="descripcion" th:field="{descripcion}" />
+                <label for="fecha">[[#{evento.fecha}]]</label>
+                <input type="text" name="fecha" th:field="{fecha}" />
                 </br>
-                <label for="ubicacion">[[#{albergue.ubicacion}]] </label>
-                <input type="text" name="ubicacion" th:field="{ubicacion}"/>
+                <label for="hora">[[#{evento.hora}]] </label>
+                <input type="text" name="hora" th:field="{hora}"/>
                 </br>
                 <input type="submit" name="Guardar" value="#{accion.guardar}"/>
             </form>

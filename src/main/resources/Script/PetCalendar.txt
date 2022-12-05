@@ -77,3 +77,13 @@ foreign key (id_veterinaria) references veterinaria(id_veterinaria)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_eo_0900_ai_ci;
+
+create table petcalendar.evento(
+id_evento int not null AUTO_INCREMENT primary key,
+nombre varchar(35)not null,
+fecha varchar(10),
+hora varchar(10) 
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_eo_0900_ai_ci;
