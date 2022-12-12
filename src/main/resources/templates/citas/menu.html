@@ -5,30 +5,56 @@
     <head th:replace="layout/plantilla :: head">
         <title>Agendar citas</title>
     </head>
-    <body>
+    <body class="bg-CuerpoPagina">
         <header th:replace="layout/plantilla :: header"/>
         <div class="container">
+            <div class="row col-md-4">
+                <h1>[[#{citas.titulo}]]</h1>
+            </div>
 
-            <h1>[[#{citas.titulo}]]</h1>
 
-            <div class="column  py-1 mb-2 bg-light">
-                <a th:href="@{/citas/listado}">
-                    <button class="btn btn-primary btn-block "> [[#{citas.lista}]]</button>  </a>                                      
-            </div>
-            <div class="column  py-1 mb-2 bg-light">
-                <a th:href="@{/citas/listadoEliminar}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.eliminar}]]</button>  </a>                                      
-            </div>
-            <div class="column  py-1 mb-2 bg-light">
-                <a th:href="@{/cita/nuevo}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.agregar}]]</button>  </a>                                      
-            </div>
-            <div class="column  py-1 mb-2 bg-light">
-                <a th:href="@{/cita/listadoEditar}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.actualizar}]]</button>  </a>                                      
-            </div>
-            <br/>
-        </div>
-        <footer th:replace="layout/plantilla :: footer"/>
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-Citas">
+                                <h5 class="card-title">Agendar Cita</h5>
+                                <p class="card-text"></p>
+                                <a th:href="@{/citas/nuevo}">
+                                    <button  class="btn btn-primary btn-block "> <i class="fa fa-plus"></i>[[#{accion.agregar}]]</button>  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-Citas">
+                                <h5 class="card-title">Cancelar Cita</h5>
+                                <p class="card-text"></p>
+                                <a th:href="@{/citas/listado}">
+                                    <button class="btn btn-danger btn-block "><i class="fa fa-trash"></i> [[#{accion.eliminar}]]</button>  </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            
+            
+                <section class="container">
+                    <div class="card-bodyColor">
+                        <div class="card-header">
+                            Conoce De Nuestro Albergues Y Adopta 
+                        </div>
+                        <div class="card-bodyColor text-center">
+                            <h5 class="card-title">Albergues My PetCalendar</h5>
+                            <p class="card-text">Capacitamos a la población en temas de tenencia responsable de mascotas, bienestar animal y salud pública. Además se esterilizan y vacunan los perros callejeros y posee un programa de adopciones para estos animales.</p>
+                            <a th:href="@{/albergue/listado}" class="btn btn-primary">Albergues</a><i class="fa fa-right"></i>
+                        </div>
+                    </div>
+
+                </section>
+            
+
+      <footer th:replace="layout/plantilla :: footer"/>      
     </body>
+    
 </html>

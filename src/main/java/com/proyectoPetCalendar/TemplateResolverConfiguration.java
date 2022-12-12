@@ -20,7 +20,7 @@ public class TemplateResolverConfiguration {
         templateResolver.setCheckExistence(true);
         return templateResolver;
     }
-    
+    @Bean
     public SpringResourceTemplateResolver templatesResolver_1(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setPrefix("classpath:/albergue");
@@ -31,7 +31,7 @@ public class TemplateResolverConfiguration {
         templateResolver.setCheckExistence(true);
         return templateResolver;
     }
-    
+    @Bean
     public SpringResourceTemplateResolver templatesResolver_2(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setPrefix("classpath:/mascotas");

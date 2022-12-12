@@ -12,35 +12,37 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication()
-                .withUser("juan")
+                .withUser("admin")
                     .password("{noop}123")
-                    .roles("ADMIN","VENDEDOR","USER")
+                    .roles("ADMIN","USER")
                 .and()
-                .withUser("pedro")
+                .withUser("user")
                     .password("{noop}123")
                     .roles("USER");
     }
     
-    @Override
-    protected void configure(HttpSecurity http) throws Exception{ //Consulta de autorización y asignación de roles 
+        @Override
+    protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/albergue/nuevo",        "/albergue/guardar", 
-                             "/albergue/modificar/**", "/albergue/eliminar/**",
-                             "/mascotas/nuevo",       "/mascotas/guardar",
-                             "/mascotas/modificar/**","/mascotas/eliminar/**",
-                             "/cliente/nuevo",         "/cliente/guardar",  
-                             "/cliente/modificar/**",  "/cliente/eliminar/**",
-                             "/usuario/listado",  
-                             "/usuario/nuevo",         "/usuario/guardar",  
-                             "/usuario/modificar/**",  "/usuario/eliminar/**")
+                .antMatchers("/mascotas/menu","/mascotas/actualizar","/mascotas/listado"  , 
+                             "/mascotas/listadoEliminar", "/mascota/listadoEditar",
+                             "/mascota/nuevo",       "/mascota/guardar",
+                             "/mascota/modificar/**","/mascota/eliminar/**"
+                             )
                     .hasRole("ADMIN")
-                .antMatchers("/albergue/listado", "/mascotas/listado",
-                             "/cliente/listado")
-                    .hasAnyRole("ADMIN","USER")
+                .antMatchers("/mascotas/menu","/mascotas/actualizar","/mascotas/listado"  , 
+                             "/mascotas/listadoEliminar", "/mascota/listadoEditar",
+                             "/mascota/nuevo",       "/mascota/guardar",
+                             "/mascota/modificar/**","/mascota/eliminar/**")
+                    .hasAnyRole("USER")
+                .antMatchers("/")
+                    .hasAnyRole("USER","ADMIN")
                 .and()
                     .formLogin()
                     .loginPage("/login")
                 .and()
                     .exceptionHandling().accessDeniedPage("/errores/403");
     } 
+   
+  
 }

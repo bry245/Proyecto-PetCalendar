@@ -10,32 +10,49 @@
         <div class="container px4">
             <h1 class="px4"> <i class="fas fa-calendar"></i>[[#{citas.lista}]]</h1>
         </div>
-              <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div th:if="${citas != null and !citas.empty}">
-                                <table class="table table-stryped">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>Cita</th>
-                                            <th th:text="#{citas.mascota}">Propietario</th>
-                                            <th th:text="#{citas.veterinaria}">Cedula</th>
-                                            <th th:text="#{citas.fecha}">Nombre</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="cita, contador : ${citas}">
-                                            <td>[[${citas.mascota}]] </td>
-                                            <td>[[${citas.veterinaria}]] </td>
-                                            <td>[[${citas.fecha}]] </td>  
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card">
+
+                        <div >
+                            <table class="table table-stryped">
+                                <thead class="thead-dark">
+                                    <tr>
+
+                                        <th th:text="#{citas.mascota}">Veterinaria</th>
+                                        <th th:text="#{citas.veterinaria}">Ubicacion</th>
+                                        <th th:text="#{citas.fecha}">Telefono</th>
+                                        <th th:text="#{cita.cancelar}">Cancelar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="citas, contador : ${citas}">
+                                        <td>[[${citas.idCita}]] </td>
+                                        <td>[[${citas.mascota}]] </td>
+                                        <td>[[${citas.veterinaria}]] </td> 
+                                        <td>[[${citas.fecha}]] </td> 
+                                        <td>
+                                            <a th:href="@{/citas/eliminar/} + ${citas.idCita}"
+                                               class="btn btn-danger">
+                                                <i class="fa fa-trash"></i> [[#{citas.cancelar}]]
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+
+
             <br/>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>

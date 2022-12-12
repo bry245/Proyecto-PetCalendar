@@ -27,15 +27,15 @@ public class Usuario implements Serializable {
     private Long idUsuario;
     private String nombre;
     private String apellidos;
-    private String correo;
-    private String contraseña;
+    private String username;
+    private String password;
     private String telefono;
 
-    public Usuario(String nombre, String apellidos, String correo, String contraseña, String telefono) {
+    public Usuario(String nombre, String apellidos, String username, String password, String telefono) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.correo = correo;
-        this.contraseña = contraseña;
+        this.username = username;
+        this.password = password;
         this.telefono = telefono;
     }
 

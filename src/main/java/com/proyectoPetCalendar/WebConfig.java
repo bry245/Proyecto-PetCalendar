@@ -20,8 +20,6 @@ public class WebConfig implements WebMvcConfigurer{
         slr.setDefaultLocale(new Locale("es"));
         return slr;
     }
- 
-    
     
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor(){
@@ -35,15 +33,13 @@ public class WebConfig implements WebMvcConfigurer{
         
         registro.addInterceptor(localeChangeInterceptor()); 
     }
+    
     @Override
-    
-    
     public void addViewControllers(ViewControllerRegistry registro){
         registro.addViewController("/").setViewName("index");
         registro.addViewController("/login");
         registro.addViewController("/errores/403").setViewName("/errores/403");
     }
-    
     
     
 }

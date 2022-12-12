@@ -1,32 +1,74 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head">
         <title>Mascotas</title>
     </head>
-    <body>
+    <body class="bg-CuerpoPagina">
         <header th:replace="layout/plantilla :: header"/>
-        <div class="container">
+        <div class="container-Menu">
 
-            <h1>[[#{mascotas.titulo}]]</h1>
+          
 
-            <div class="row  py-1 mb-2 bg-light">
-                <a th:href="@{/mascotas/listado}">
-                    <button class="btn btn-primary btn-block "> [[#{mascotas.lista}]]</button>  </a>                                      
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-bodyColor ">
+                            <h5 class="card-title">[[#{mascotas.lista}]] <i class="fa fa-paw"></i></h5>
+                            <p class="card-text">Consulte todas las Mascotas Registradas</p>
+                            <a th:href="@{/mascotas/listado}">
+                                <button class="btn btn-primary btn-block "> [[#{mascotas.lista}]] </button>  </a>     
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-bodyColor ">
+                            <h5 class="card-title">[[#{accion.agregar}]] <i class="fa fa-plus"></i></h5>
+                            <p class="card-text">Registre su Mascota con Nosotros</p>
+                            <a th:href="@{/mascota/nuevo}">
+                        <button class="btn btn-primary btn-block "> [[#{accion.agregar}]]</button>  </a>   
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row  py-1 mb-2 bg-light">
-                <a th:href="@{/mascotas/listadoEliminar}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.eliminar}]]</button>  </a>                                      
+           <br/>
+           <br/>
+           <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-bodyColor ">
+                            <h5 class="card-title">[[#{accion.eliminar}]]<i class="fa fa-trash"></i></h5>
+                            <p class="card-text">Elimine Una Mascota Del Registro</p>
+                            <a th:href="@{/mascotas/listadoEliminar}">
+                        <button class="btn btn-primary btn-block "> [[#{accion.eliminar}]] </button>  </a>     
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-bodyColor ">
+                            <h5 class="card-title">[[#{accion.actualizar}]] <i class="fa fa-pen"></i></h5>
+                            <p class="card-text">Modifique Los Datos De Su Mascota</p>
+                             <a th:href="@{/mascota/listadoEditar}">
+                        <button class="btn btn-primary btn-block "> [[#{accion.actualizar}]] </button>  </a> 
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row  py-1 mb-2 bg-light">
-                <a th:href="@{/mascota/nuevo}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.agregar}]]</button>  </a>                                      
-            </div>
-            <div class="row  py-1 mb-2 bg-light">
-                <a th:href="@{/mascota/listadoEditar}">
-                    <button class="btn btn-primary btn-block "> [[#{accion.actualizar}]]</button>  </a>                                      
-            </div>
-            <br/>
+
         </div>
-        <footer th:replace="layout/plantilla :: footer"/>
+
+
+
+
+
+        </div>
+
+
+        
     </body>
+    <footer th:replace="layout/plantilla :: footer"/>
 </html>

@@ -31,12 +31,7 @@ public class CitasServiceImpl  implements CitasService{
     @Override
     @Transactional 
     public void save(Citas citas) {
-        Mascota mascota = citas.getMascota();
-        mascota = mascotaDao.save(mascota);
-        Veterinaria veterinaria= citas.getVeterinaria();  
-        veterinaria = veterinariaDao.save(veterinaria);
-        citas.setMascota(mascota);
-        citas.setVeterinaria(veterinaria);
+        citasDao.save(citas);
     }
 
     @Override

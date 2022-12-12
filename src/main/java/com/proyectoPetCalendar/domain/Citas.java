@@ -2,6 +2,7 @@
 package com.proyectoPetCalendar.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,24 +23,22 @@ public class Citas implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_cita")
     private Long idCita;
+    private String mascota;
+    private String veterinaria;
     private String fecha;
-    
-    @JoinColumn(name="id_mascota",referencedColumnName="id_mascota")
-    @ManyToOne
-    private Mascota mascota;
-    
-    @JoinColumn(name="id_veterinaria",referencedColumnName="id_veterinaria")
-    @ManyToOne
-    private Veterinaria veterinaria;
 
     public Citas() {
     }
 
-    public Citas(Long idCita, String fecha, Mascota mascota, Veterinaria veterinaria) {
-        this.idCita = idCita;
-        this.fecha = fecha;
+    public Citas( String mascota, String veterinaria, String fecha) {
+        
         this.mascota = mascota;
         this.veterinaria = veterinaria;
-    }   
+        this.fecha = fecha;
+    }
+    
+    
+      
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Mascotas</title>
+    </head>
+    <body class="bg-CuerpoPagina">
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="container px4">
+           
+            <h1 class="px4">  <i class="fa fa-dog"></i>[[#{voluntarios.lista}]]</h1>
+
+        </div>
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                 <h4>[[#{voluntarios.listado}]]</h4>
+                            </div>
+                            <div th:if="${voluntarios != null and !voluntarios.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            
+                                            <th th:text="#{voluntarios.nombre}">Nombre</th>
+                                            <th th:text="#{voluntarios.apellidos}">Tipo</th>
+                                            <th th:text="#{voluntarios.telefono}">Telefono</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="voluntario, contador : ${voluntarios}">
+                                            <td>[[${voluntario.nombre}]] </td>
+                                            <td>[[${voluntario.apellidos}]] </td>
+                                            <td>[[${voluntario.telefono}]] </td>
+                                        </tr>
+                                    </tbody>
+            
+            
+            
+
+
+            <br/>
+        </div>
+        <footer />
+    </body>
+</html>

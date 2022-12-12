@@ -5,16 +5,19 @@
     <head th:replace="layout/plantilla :: head">
         <title>Mascotas</title>
     </head>
-    <body>
+    <body class="bg-CuerpoPagina">
         <header th:replace="layout/plantilla :: header"></header>
-        <section id="actions" class="py-4 mb-4 bg-light">
+        <section id="actions" class="py-4 mb-4 bg-CuerpoPagina">
             <div class="container">
+                
                 <div class="row">                   
                 </div>
             </div>
+            <h1 class="px4">  <i class="fa fa-dog"></i>[[#{mascotas.agregar}]]</h1>
         </section>
 
         <section>
+            
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mx-auto">

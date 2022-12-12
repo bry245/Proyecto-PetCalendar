@@ -1,45 +1,119 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Citas</title>
     </head>
-    <body>
+    <body class="bg-CuerpoPagina">
         <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            <h2>Listado de albergues</h2>
-            <br/>
-            <br/>
-            <div th:if = "${albergues != null and !albergues.empty}">
-                <br/>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Ubicación</th>
-                            <th>Cuenta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="albergue:${albergues}">
-                            <td th:text="${albergue.descripcion}"></td>
-                            <td th:text="${albergue.ubicacion}"></td>
-                            <td th:text="${albergue.cuenta}"></td>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-                <br/>
-                <br/>
-                <br/>
-                <button style="background-color: cornflowerblue"><a th:href="@{/}">Atrás</a></button>
-            </div>
-            <div th:if="${albergues == null or albergues.empty}">
-                La lista esta vacía
-            </div>
-            <br/>
+        <div class="container px4">
+            <h1 class="px4"> <i class="fas fa-shield"></i>[[#{albergue.lista}]]</h1>
         </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card">
+
+                        <div >
+                            <table class="table table-stryped">
+                                <thead class="thead-dark">
+                                    <tr>
+
+                                        <th th:text="#{albergue.descripcion}">Veterinaria</th>
+                                        <th th:text="#{albergue.ubicacion}">Ubicacion</th>
+                                        <th th:text="#{albergue.cuenta}">Telefono</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="albergues, contador : ${albergues}">
+                                        <td>[[${albergues.descripcion}]] </td>
+                                        <td>[[${albergues.ubicacion}]] </td>
+                                        <td>[[${albergues.cuenta}]] </td> 
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br/>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header bg-dark" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Albergues My PetCalendar
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body bg-card-albergue">
+                            My petCalendar se ha dado a la tarea de buscar y brindar ayuda a distintintas instituciones que cumplen 
+                            como albergues para los animales que ya sea han sido abandonados o presentan problemas de Salud. La idea
+                            planteada es servir como puente de comunicación con todos los usuarios para que estas instituciones sean
+                            más reconocidas y con ello tener muchos beneficios como por ejemplo mayor disponibilidad para colocar los 
+                            animales en adopción o bien poder registrar colaboradores que brinden su ayuda en las distintas labores que 
+                            se requieren
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" ><a th:href="@{/voluntarios/listado}"style="color:white">Voluntarios</a></button>
+            <button type="button" 
+                    class="btn btn-primary btn-lg"
+ 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#agregarVoluntario">[[#{usuario.registrar}]]</button>
+
+        </div>  
+
+
+        <section >
+            <div id="agregarVoluntario" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title" th:text="#{usuario.registrar2}">Registrar Voluntario</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/voluntario/guardar}" th:object="${voluntario}"
+                              method="POST" class="was-validated">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="nombre" th:text="#{voluntarios.nombre}">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="apellidos" th:text="#{usuario.apellidos}">Apellidos</label>
+                                    <input type="text" class="form-control" name="apellidos" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono" th:text="#{usuario.telefono}">Telefono</label>
+                                    <input type="tel" class="form-control" name="telefono" required="true" >
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

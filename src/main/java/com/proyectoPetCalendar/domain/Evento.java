@@ -12,24 +12,27 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="veterinaria")
+@Table(name="evento")
 public class Evento implements Serializable{
     private static final long serialVersionUID=1L;
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id_veterinaria") 
+    @Column(name="id_evento") 
     private Long idEvento;
-    private String nombre;
-    private String fecha;
-    private String hora;
+    private String titulo;
+    private String descripcion;
+    private String link;
+    
 
     public Evento() {
     }
 
-    public Evento(String nombre, String fecha, String hora) {
-        this.nombre = nombre;
-        this.fecha = fecha;
-        this.hora = hora;
+    public Evento(String titulo,String descripcion, String link) {
+        this.titulo=titulo;
+        this.descripcion = descripcion;
+        this.link = link;
     }
+
+    
 }

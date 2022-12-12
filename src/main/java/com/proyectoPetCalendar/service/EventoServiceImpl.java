@@ -15,28 +15,35 @@ public class EventoServiceImpl  implements EventoService {
     EventoDao eventoDao;
 
     @Override
-    @Transactional (readOnly=true)
+        @Transactional
     public List<Evento> getEventos() {
         var Lista=(List<Evento>) eventoDao.findAll();
-        return Lista;
+       return Lista;
     }
 
-    @Override
-    @Transactional (readOnly=true)
-    public Evento getEvento(Evento evento) {
-        return eventoDao.findById(evento.getIdEvento()).orElse(null);    
-    }
+   // @Override
+    /*public Evento getEvento(Evento evento) {
+     
+    }*/
 
+        @Transactional
     @Override
-    @Transactional
     public void save(Evento evento) {
-       eventoDao.save(evento);
+        eventoDao.save(evento);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    @Transactional
+        @Transactional
     public void delete(Evento evento) {
-        eventoDao.delete(evento);
+        eventoDao.delete(evento); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+        @Transactional
+    public Evento getEvento(Evento evento) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+   
     
 }

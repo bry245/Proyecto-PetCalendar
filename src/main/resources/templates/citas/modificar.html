@@ -5,53 +5,99 @@
     <head th:replace="layout/plantilla :: head">
         <title>Citas</title>
     </head>
-    <body>
+    <body class="bg-CuerpoPagina">
         <header th:replace="layout/plantilla :: header"></header>
-        <section id="actions" class="py-4 mb-4 bg-light">
-            <div class="container">
-                <div class="row">                   
-                </div>
-            </div>
-        </section>
+        <div class="container px4 text-center" >
+            <h1 class="px4"> <i class="fa fa-dog"></i>[[#{veterinaria.titulo}]]</h1>
+        </div>
 
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{citas.agregar}]]</h4>
-                            </div>
-                            <div class="card-body">
-                                <form th:action="@{/citas/guardar}"
-                                      method="post"
-                                      th:object="${cita}">
-                                    <div class="row py-1 mb-2 bg-light">
-                                        <div class="form-group">
-                                            <input type="hidden" name="idCita" th:field="*{idCita}" />
-                                            <label for="mascota">[[#{citas.mascota}]]</label>
-                                            <input type="text" name="mascota"  th:field="*{mascota}"/>
-                                            <br/>
-                                            <label for="veterinaria">[[#{citas.veterinaria}]]</label>
-                                            <input type="text" name="veterinaria"  th:field="*{veterinaria}"/>
-                                             <br/>
-                                            <label for="fecha">[[#{citas.fecha}]]></label> 
-                                            <input type="date" name="date" th:field="*{fecha}"/><br>
+        <div class="container justify-content-center">
+
+            <div class=" col-md-12">
+                <div >
+                    <div class="card">
+
+                        <div th:if="${veterinarias != null and !veterinarias.empty}">
+                            <table class="table table-success table-striped " >
+                                <thead class="thead-dark bg-colorNavegacion">
+                                    <tr>
+
+                                        <th th:text="#{veterinaria.nombre}">Veterinaria</th>
+                                        <th th:text="#{veterinaria.ubicacion}">Ubicacion</th>
+                                        <th th:text="#{veterinaria.telefono}">Telefono</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="veterinarias, contador : ${veterinarias}">
+                                        <td>[[${veterinarias.nombre}]] </td>
+                                        <td>[[${veterinarias.ubicacion}]] </td>
+                                        <td>[[${veterinarias.telefono}]] </td> 
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="container row bg-CuerpoPagina">
+
+
+            </div>
+        </div>
+
+            
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="card">
+                                <div class="card-header bg-colorNavegacion" style="color: white">
+                                    <h4>[[#{citas.agregar}]]</h4>
+                                </div>
+                                <div class="card-bodyColor">
+                                    <form th:action="@{/citas/guardar}"
+                                          method="post"
+                                          th:object="${cita}">
+                                        <div class="row py-1 mb-2 bg-cuadroCita">
+                                            <div class="form-group">
+                                                <input type="hidden" name="idCita" th:field="*{idCita}" />
+                                                <label for="mascota">[[#{citas.mascota}]]</label>
+                                                <select  th:field="*{mascota}" class="form-control">
+                                                    <option th:each="mascotas:${mascotas}"
+                                                            th:value="${mascotas.nombreMascota}"
+                                                            th:text="${mascotas.nombreMascota}"/>
+                                                </select>
+                                                <br/>
+                                                <label for="veterinaria">[[#{citas.veterinaria}]]</label>
+                                                <select  th:field="*{veterinaria}" class="form-control ">
+                                                    <option th:each="veterinarias:${veterinarias}"
+                                                            th:value="${veterinarias.nombre}"
+                                                            th:text="${veterinarias.nombre}"/>
+                                                </select>
+                                                <!--<label for="veterinaria">[[#{citas.veterinaria}]]</label>
+                                                <input type="text" name="veterinaria"  th:field="*{veterinaria}"/>-->
+                                                <br/>
+                                                <label for="fecha">[[#{citas.fecha}]]></label> 
+                                                <input type="date" name="date" th:field="*{fecha}"/><br>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="row  py-1 mb-2 bg-light">
-                                        <button type="submit" class="btn btn-primary btn-block">[[#{accion.agregar}]]</button>                                        
-                                    </div>
-                                </form>
+
+                                        <div class="row  mb-2 bg-light">
+                                            <button type="submit" class="btn  btn-block btn-cita">[[#{accion.agregar}]]</button>                                        
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            
 
-        <footer th:replace="layout/plantilla :: footer"></footer>
+            <footer th:replace="layout/plantilla :: footer"></footer>
 
     </body>
 </html>

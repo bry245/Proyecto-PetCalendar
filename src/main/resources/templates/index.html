@@ -1,16 +1,67 @@
 <!DOCTYPE html>
-<html xmlns: th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+
     <head th:replace="layout/plantilla :: head">
         <title>Index</title>
     </head>
 
-    <body>
+    <body class="bg-body">
         <header th:replace="layout/plantilla :: header"/>
+        
         <div class = "contenido">
-            <h2>Bienvenido</h2>
-            <div >
-               
+            
+            <div class="card text-center">
+                <div class="card-header bg-cuadroBienvenido" >
+                    Bienvenido!
+                </div>
+                <div class="card-body bg-cuadro2binevenida ">
+                    <h5 class="card-title">[[#{index.bienvenido}]]</h5>
+                    <p class="card-text">[[#{index.bienvenido2}]]</p>
+                    <a th:href="@{/mascotas/menu}" class="btn btn-primary">Registra Tu Mascota</a><i class="fa fa-right"></i>
+                </div>
+                <div class="card-footer  pieEncabezado">
+                    Continúa para descubrir más!!!
+                    
+                </div>
             </div>
+
+            <div class="card-deck" row row-cols-3>
+                <div class="card">
+                                     
+
+                        <div class="card-body text-center">
+                            <img src="/images/vacunas.jpg" alt="equipo" width="100px"> 
+                            <h5 class="card-title">Importancia De Las Vacunas <br/> Para Tu Mascota  <i class="fa fa-syringe"></i></h5>
+                           
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>

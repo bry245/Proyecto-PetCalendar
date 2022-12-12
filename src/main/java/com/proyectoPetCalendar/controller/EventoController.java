@@ -22,4 +22,5 @@ public class EventoController {
         model.addAttribute("eventos", eventos);
         return "/evento/listado";
     }
+    
 }

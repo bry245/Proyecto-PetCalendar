@@ -1,0 +1,125 @@
+.bg-colorNavBar {
+    background-color: #A80D44;
+
+}
+.bg-colorNavegacion{
+    background-color: #5E0826
+
+}
+.bg-cuadroBienvenido{
+    background-color: #A80D44;
+    color: white;
+    font-size: 27px;
+    font-family: fangsong;
+    font-weight: bold;
+
+}
+
+.bg-cuadro2binevenida{
+
+    background-color: #A80D44;
+    border-block: inherit;
+    border-color: cadetblue;
+    color: antiquewhite;
+    font-size: 22px;
+}
+.pieEncabezado{
+    background-color: darkmagenta;
+    color: rosybrown;
+    color: violet;
+    font-family: sans-serif;
+}
+
+.bg-body{
+    background-color: darkmagenta;
+}
+
+.bg-CuerpoPagina{
+    background-color: darksalmon;
+
+}
+.container-Menu{
+    margin-top: 11px;
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.card-bodyColor{
+    background-color:#A80D44;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    color:white;
+    font-weight: bold;
+
+}
+.bg-cuadroCita{
+    background-color: cadetblue;
+    color: yellow;
+
+
+
+}
+
+
+
+.container-Login{
+    margin-top: 71px;
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    background-color:#A80D44;
+
+}
+.card-title-login{
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    text-align: center;
+    background-color: lightgrey;
+
+}
+.btn-registro{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #0d6efd;
+}
+
+.card-Citas{
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background-color: #5E0826;
+    color: white;
+    border-top-left-radius: 0.45rem;
+    border-top-right-radius: 0.45rem;
+    border-bottom-right-radius: 0.45rem;
+    border-bottom-left-radius: 0.45rem;
+    border-radius: 0.45rem;
+    text-align: center;
+
+}
+.btn-cita{
+    background-color: yellow;
+    font-weight: bold;
+    color: brown
+
+}
+.card-eventos{
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    color: white;
+    background-color: darkgray;
+    font-weight: inherit;
+}
+.bg-card-albergue{
+    padding: 1rem 1rem;
+    background-color: wheat;
+}
+.bg-footer{
+    background-color: darkslategray;
+    color: white;
+    
+    
+}
